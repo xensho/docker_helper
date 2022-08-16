@@ -1,0 +1,8 @@
+#!/bin/bash
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Start Jenkins latest image with configured ports and volumes.
+docker run --restart unless-stopped -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Start Nginx latest image with configured ports and volumes.
+docker run --restart unless-stopped -d -p 50000:50000 -p 80:80 -v nginx_home:/usr/share/nginx/html -v nginx_conf:/etc/nginx nginx:stable
